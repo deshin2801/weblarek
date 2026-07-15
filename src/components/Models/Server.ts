@@ -1,5 +1,5 @@
 import {IApi} from "../../types";
-import {ProdResponse} from "../../types";
+import {ProductsResponse} from "../../types";
 import {OrderResponse} from "../../types";
 import {OrderInfo} from "../../types";
 
@@ -10,8 +10,8 @@ class Server {
   this.api = api;
  }
 
- async getProd(): Promise<ProdResponse> {
-  return await this.api.get<ProdResponse>('/product/')
+ async getProducts(): Promise<ProductsResponse> {
+  return await this.api.get<ProductsResponse>('/product/')
  }
 
  async postOrder(orderInfo: OrderInfo): Promise<OrderResponse> {

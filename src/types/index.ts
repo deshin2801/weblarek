@@ -9,7 +9,7 @@ export type ErrorValid<T> = Partial<Record<keyof T, string>>;
 
 export type Validation<T> = {
   isValid: boolean;
-  error: ErrorValid<T>;
+  errors: ErrorValid<T>;
 }
 
 export interface IProduct {
@@ -28,12 +28,10 @@ export interface IBuyer {
   address: string;
 } 
 
-export type TPayment = 'card' | 'cash' | '';
+export type TPayment = 'card' | 'cash';
 
-export type ProdResponse = {
-  id: string;
+export type ProductsResponse = {
   total: number;
-  items: HTMLElement[];
   products: IProduct[];
 }
 
@@ -45,7 +43,6 @@ export interface OrderInfo extends IBuyer {
     prodId: string;
     quantity: number;
   }[];
-  name: string;
 }
 
 export type OrderResponse = {

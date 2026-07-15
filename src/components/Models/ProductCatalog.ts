@@ -13,14 +13,14 @@ class ProductCatalog {
   }
 
   getProductId(id: string): IProduct | undefined {
-    return this.products.find(IProduct => IProduct.id === id);
+    return this.products.find((product) => product.id === id);
   }
 
-  setSelectedProduct (IProduct: IProduct): void {
-    this.selectProduct = IProduct;
+  setSelectedProduct (SelectedProduct: IProduct): void {
+    this.selectProduct = SelectedProduct;
   }
 
-  getSelectedProduct (): IProduct | null {
+  getSelectedProduct(): IProduct | null {
     return this.selectProduct
   }
 }

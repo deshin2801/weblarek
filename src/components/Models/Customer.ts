@@ -1,14 +1,12 @@
-import {IBuyer} from "../../types";
-import {TPayment} from "../../types"
-import {Validation} from "../../types"
-import {ErrorValid} from "../../types"
+import {IBuyer, TPayment, Validation, ErrorValid} from "../../types";
+
 class Customer {
-  private payment: TPayment = '';
+  private payment: TPayment | ''= '';
   private address: string = '';
   private phone: string = '';
   private email: string = '';
 
-  savePayment(method: TPayment): void {
+  savePayment(method: TPayment | ''): void {
     this.payment = method;
   }
 
@@ -40,19 +38,19 @@ class Customer {
     }
    
     validateData(): Validation<IBuyer>{
-    const error: ErrorValid<IBuyer> = {};
+    const errors: ErrorValid<IBuyer> = {};
 
     if (this.payment === '') {
-      error.payment = 'Не выбран вид оплаты';
+      errors.payment = 'Не выбран вид оплаты';
     } if (this.email === '') {
-      error.email = 'Укажите емэйл';
+      errors.email = 'Укажите емэйл';
     } if (this.address === '') {
-      error.address === 'Укажите адрес';
+      errors.address = 'Укажите адрес';
     } if (this.phone === '') {
-      error.phone = 'Укажите телефон';
+      errors.phone = 'Укажите телефон';
     }
-    const isValid = Object.keys(error).length === 0;
-    return {isValid, error };
+    const isValid = Object.keys(errors).length === 0;
+    return {isValid, errors };
     }
 }
 

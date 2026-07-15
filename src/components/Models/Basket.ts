@@ -7,12 +7,12 @@ class Basket {
    return[...this.savedProducts];
   }
 
-  addSavedProducts(IProduct: IProduct): void {
-    this.savedProducts.push(IProduct);
+  addSavedProducts(product: IProduct): void {
+    this.savedProducts.push(product);
   }
 
-  deleteSavedProducts(IProduct: IProduct): void {
-    this.savedProducts = this.savedProducts.filter(savedProduct => savedProduct.id !== IProduct.id)
+  deleteSavedProducts(product: IProduct): void {
+    this.savedProducts = this.savedProducts.filter(savedProduct => savedProduct.id !== product.id)
   }
 
   clearBasket(): void {
@@ -34,3 +34,4 @@ hasSavedProduct (id: string): boolean {
 }
 
 export default Basket
+

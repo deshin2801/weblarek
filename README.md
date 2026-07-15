@@ -155,7 +155,7 @@ interface IBuyer {
 
  getProducts(): Product[] - получение массива товаров из модели;
 
- getProductId(id: string): Product | underfiend - получение одного товара по его id;
+ getProductId(id: string): Product | undefined - получение одного товара по его id;
 
  setSelectedProduct (product: Product): void - сохранение товара для подробного отображения;
 
