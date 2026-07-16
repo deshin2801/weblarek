@@ -22,7 +22,7 @@ export interface IProduct {
 } 
 
 export interface IBuyer {
-  payment: TPayment;
+  payment: TPayment | '';
   email: string;
   phone: string;
   address: string;
@@ -32,17 +32,14 @@ export type TPayment = 'card' | 'cash';
 
 export type ProductsResponse = {
   total: number;
-  products: IProduct[];
+  items: IProduct[];
 }
 
 export type prodId = string;
 
 export interface OrderInfo extends IBuyer {
-  total?: number;
-  items: {
-    prodId: string;
-    quantity: number;
-  }[];
+  total: number;
+  items: string;
 }
 
 export type OrderResponse = {

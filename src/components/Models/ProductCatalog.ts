@@ -16,8 +16,8 @@ class ProductCatalog {
     return this.products.find((product) => product.id === id);
   }
 
-  setSelectedProduct (SelectedProduct: IProduct): void {
-    this.selectProduct = SelectedProduct;
+  setSelectedProduct (selectedProduct: IProduct): void {
+    this.selectProduct = selectedProduct;
   }
 
   getSelectedProduct(): IProduct | null {

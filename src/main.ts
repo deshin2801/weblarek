@@ -6,6 +6,7 @@ import Customer from './components/Models/Customer';
 import { apiProducts } from './utils/data';
 import { Api } from './components/base/Api';
 import Server from './components/Models/Server';
+import { API_URL } from './utils/constants';
 
 const productsModel = new ProductCatalog();
 productsModel.saveProducts(apiProducts.items); 
@@ -48,7 +49,8 @@ console.log('Получение количества товаров в корз�
 
 console.log('Проверка наличия товара в корзине по его id, полученного в параметр метода', basket.hasSavedProduct("b06cde61-912f-4663-9751-09956c0eed67"));
 
-const server = new Server(Api);
+const api = new Api(API_URL);
+const server = new Server(api);
 
 server.getProducts()
 .then((responseData) => {
